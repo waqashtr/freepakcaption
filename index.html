@@ -1,0 +1,145 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Pak Caption - Auto Video Caption Generator</title>
+    <meta name="description" content="Generate captions automatically from video files with Free Pak Caption. Supports all video formats, multi-language transcription, and full styling tools.">
+    <meta name="keywords" content="Video Caption Generator, Free Pak Caption, Auto Subtitle Generator, Whisper.js, HTML Caption Tool, Free Speech-to-Text">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+            color: #fff;
+        }
+        header {
+            background: #111;
+            padding: 1rem;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: gold;
+            box-shadow: 0 0 10px gold;
+        }
+        .ad-top, .ad-bottom {
+            margin: 10px auto;
+            width: 100%;
+            height: 90px;
+            background-color: #333;
+            text-align: center;
+            line-height: 90px;
+            border: 2px dashed #555;
+            color: #aaa;
+        }
+        main {
+            max-width: 800px;
+            margin: auto;
+            padding: 2rem;
+        }
+        .video-box, .caption-box {
+            margin-bottom: 2rem;
+            background: #1e1e2f;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+        }
+        input[type="file"], select, input[type="color"], input[type="range"] {
+            width: 100%;
+            margin-top: 10px;
+            padding: 0.5rem;
+            border: none;
+            border-radius: 5px;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            margin-top: 10px;
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            resize: vertical;
+        }
+        .btn {
+            background: gold;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+        .btn:hover {
+            background: orange;
+        }
+        .seo-description {
+            margin-top: 3rem;
+            padding: 2rem;
+            background-color: #0e0e1a;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <header>Free Pak Caption</header>
+    <div class="ad-top">AdMob Ad - Top (ID: ca-app-pub-8894441711880316/9026050531)</div><main>
+    <div class="video-box">
+        <h2>Upload Your Video</h2>
+        <input type="file" id="videoInput" accept="video/*">
+        <video id="videoPreview" controls width="100%" style="margin-top: 1rem;"></video>
+    </div>
+
+    <div class="caption-box">
+        <h2>Auto Generated Captions</h2>
+        <textarea id="captionText">Auto-generated captions will appear here after processing...</textarea>
+        <label>Font Size</label>
+        <input type="range" id="fontSize" min="12" max="36" value="16">
+        <label>Font Color</label>
+        <input type="color" id="fontColor" value="#ffffff">
+        <label>Font Style</label>
+        <select id="fontStyle">
+            <option value="Arial">Arial</option>
+            <option value="Courier New">Courier New</option>
+            <option value="Georgia">Georgia</option>
+            <option value="Verdana">Verdana</option>
+        </select>
+        <button class="btn" onclick="downloadCaptions()">Download Captions</button>
+    </div>
+</main>
+
+<div class="ad-bottom">AdMob Ad - Bottom (ID: ca-app-pub-8894441711880316/6574027454)</div>
+
+<div class="seo-description">
+    <!-- 30,400+ characters of SEO text can be generated here manually or dynamically -->
+    <p>This is a placeholder for the SEO content. Free Pak Caption is your go-to free online video caption generator tool. Our app uses free open-source APIs such as Whisper.js to convert your videos into accurate, editable, and stylish captions. With full support for multiple languages, large video sizes, and various formats, this website ensures quality, speed, and full customization...</p>
+    <!-- Expand this block as needed to reach character goal -->
+</div>
+
+<script>
+    const videoInput = document.getElementById('videoInput');
+    const videoPreview = document.getElementById('videoPreview');
+
+    videoInput.addEventListener('change', function () {
+        const file = this.files[0];
+        if (file) {
+            const videoURL = URL.createObjectURL(file);
+            videoPreview.src = videoURL;
+        }
+    });
+
+    function downloadCaptions() {
+        const text = document.getElementById('captionText').value;
+        const blob = new Blob([text], { type: 'text/plain' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'captions.txt';
+        a.click();
+    }
+
+    // Placeholder: integrate Whisper.js or any speech-to-text API here
+</script>
+
+</body>
+</html>
